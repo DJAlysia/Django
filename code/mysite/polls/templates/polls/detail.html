@@ -1,0 +1,22 @@
+
+
+<h1>{{ question.question_text }}</h1>
+
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+<!-- 설문 - 답변항목 -->
+{% for choice in question.choice_set.all %} 
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" 
+           value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}" >{{ choice.choice_text }}</label> <br>
+{% endfor %}
+
+{% if error_message %}  
+<p style="color: red;">{{ eroor_message }}</p>
+{% endif %}
+
+<input type="submit" value="투표하기">
+<a href="/polls/{{ question.id }}/results">결과보기</a>
+
+</form>
