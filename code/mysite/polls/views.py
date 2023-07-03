@@ -35,12 +35,16 @@ def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     context = {'question' : question }
     # 응답할 템플릿을 지정 (detail.html)
-    return render(request, 'polls/detail.html', {'question' : question})
+    return render(request, 'polls/detail.html', context)
     # render()
     # : 요청객체(request)를 지정해주고, 응답할 화면을 지정
     #  HttpResponse 객체를 반환
     #   - 클라이언트에게 응답할 내용
     #   - 화면을 렌더링한 결과 포함
+    # get_object_or_404()
+    # - get_object_or_404( 테이블명, pk= ? )
+    #   --> pk 가 ? 인 데이터를 조회
+    #   --> 데이터가 존재하지 않으면, 404 페이지로 이동(HTTP404 예외 발생)
     
     
 # 설문 선택 등록
