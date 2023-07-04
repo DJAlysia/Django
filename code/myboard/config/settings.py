@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u8*vr24_i@#2=s)&-o%eikw$*)=ixl*=c!!e+g+tj7wu-ben=v'
+SECRET_KEY = 'django-insecure-g-fw6=np75gubj-zz5+feq!4jyt(u@ee8pc^br!%@9tk-dp8ht'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-
+    'board',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,8 +52,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-TEMPLATES_DIR = BASE_DIR / "templates"
-
+# 프로젝트 경로의 templates 위치 설정
+TEMPLATES_DIR = BASE_DIR / 'templates'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -111,6 +111,7 @@ LANGUAGE_CODE = 'en-us'
 # TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Seoul'
 
+
 USE_I18N = True
 
 USE_TZ = True
@@ -119,10 +120,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# 애플리케이션 아래의 정적파일 경로 
 STATIC_URL = 'static/'
 
-# 애플리케이션 외의 정적 경로 (프로젝트 경로의 정적파일 경로)
+# 프로젝트 경로의 정적파일 경로
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
